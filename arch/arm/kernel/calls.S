@@ -139,7 +139,7 @@
 		CALL(sys_ni_syscall)		/* was sys_create_module */
 		CALL(sys_init_module)
 		CALL(sys_delete_module)
-/* 130 */	CALL(sys_ni_syscall)		/* was sys_get_kernel_syms */
+/* 130 */	CALL(sys_finit_module)
 		CALL(sys_quotactl)
 		CALL(sys_getpgid)
 		CALL(sys_fchdir)

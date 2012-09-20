@@ -155,7 +155,7 @@
 					/* 127 was sys_create_module */
 #define __NR_init_module		(__NR_SYSCALL_BASE+128)
 #define __NR_delete_module		(__NR_SYSCALL_BASE+129)
-					/* 130 was sys_get_kernel_syms */
+#define __NR_finit_module		(__NR_SYSCALL_BASE+130)
 #define __NR_quotactl			(__NR_SYSCALL_BASE+131)
 #define __NR_getpgid			(__NR_SYSCALL_BASE+132)
 #define __NR_fchdir			(__NR_SYSCALL_BASE+133)
