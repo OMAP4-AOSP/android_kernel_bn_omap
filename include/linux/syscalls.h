@@ -369,7 +369,7 @@ asmlinkage long sys_init_module(void __user *umod, unsigned long len,
 				const char __user *uargs);
 asmlinkage long sys_delete_module(const char __user *name_user,
 				unsigned int flags);
-asmlinkage long sys_finit_module(int fd, const char __user *uargs);
+asmlinkage long sys_finit_module(int fd, const char __user *uargs, int flags);
 
 asmlinkage long sys_rt_sigprocmask(int how, sigset_t __user *set,
 				sigset_t __user *oset, size_t sigsetsize);
