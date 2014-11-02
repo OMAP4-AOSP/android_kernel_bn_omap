@@ -53,8 +53,8 @@ void compare_swap_oom_score_adj(int old_val, int new_val)
 
 	spin_lock_irq(&sighand->siglock);
 	if (current->signal->oom_score_adj == old_val) {
-		current->signal->oom_score_adj = new_val;
 		delete_from_adj_tree(current);
+		current->signal->oom_score_adj = new_val;
 		add_2_adj_tree(current);
 	}
 	spin_unlock_irq(&sighand->siglock);
@@ -74,6 +74,7 @@ int test_set_oom_score_adj(int new_val)
 	int old_val;
 
 	spin_lock_irq(&sighand->siglock);
+	delete_from_adj_tree(current);
 	old_val = current->signal->oom_score_adj;
 	if (new_val != old_val) {
 		if (new_val == OOM_SCORE_ADJ_MIN)
@@ -81,7 +82,6 @@ int test_set_oom_score_adj(int new_val)
 		else if (old_val == OOM_SCORE_ADJ_MIN)
 			atomic_dec(&current->mm->oom_disable_count);
 		current->signal->oom_score_adj = new_val;
-		delete_from_adj_tree(current);
 		add_2_adj_tree(current);
 	}
 	spin_unlock_irq(&sighand->siglock);
