@@ -119,11 +119,7 @@ void __init omap_ion_init(void)
 		omap4_ion_heap_tiler_mem_size = 0;
 	} else {
 		omap4_ion_heap_secure_input_size = (SZ_1M * 48);
-#if defined(CONFIG_MACH_OMAP_OVATION) || defined(CONFIG_MACH_OMAP_HUMMINGBIRD)
-		omap4_ion_heap_secure_output_wfdhdcp_size = 0;
-#else
 		omap4_ion_heap_secure_output_wfdhdcp_size = (SZ_1M * 16);
-#endif
 		omap4_ducati_heap_size = (SZ_1M * 48);
 		omap4_ion_heap_nonsec_tiler_mem_size = nonsecure;
 		omap4_ion_heap_tiler_mem_size =
