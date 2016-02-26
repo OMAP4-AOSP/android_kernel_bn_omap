@@ -120,11 +120,7 @@ void __init omap_ion_init(void)
 		omap4_ion_heap_nonsec_tiler_mem_size = 0;
 		omap4_ion_heap_tiler_mem_size = 0;
 	} else {
-#if defined(CONFIG_ION_OMAP_IPU_MEM_IOBUFS_SIZE) && CONFIG_ION_OMAP_IPU_MEM_IOBUFS_SIZE > 0
-		omap4_ion_heap_secure_input_size = (SZ_1M * CONFIG_ION_OMAP_IPU_MEM_IOBUFS_SIZE);
-#else
 		omap4_ion_heap_secure_input_size = (SZ_1M * 48);
-#endif
 		omap4_ion_heap_secure_output_wfdhdcp_size = (SZ_1M * 16);
 		omap4_ducati_heap_size = (SZ_1M * 48);
 #ifdef CONFIG_ION_OMAP_TILER_DYNAMIC_ALLOC
